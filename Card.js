@@ -1,8 +1,22 @@
 import { View, Text, StyleSheet, Image, Button, Pressable } from "react-native";
-import React from "react";
+import React,{ useState } from "react";
 
 const card = ({ item }) => {
+// let buttonTitle='Open'
+const [openUpdate,setOpenUpdate]=useState('OPEN')
+
+const changeOpen=()=>{
+  // if(openUpdate=='OPEN'){
+  //   setOpenUpdate('UPDATE')
+  // }else{
+  //   setOpenUpdate('OPEN')
+  // }
+  setOpenUpdate('UPDATE')
+}
+
+
   return (
+    
     <View style={styles.card}>
       <View style={{flex:2}}>
         <Image
@@ -19,9 +33,10 @@ const card = ({ item }) => {
         </Text>
       </View>
       <View style={{flex:3.5}}>
-        <Pressable onPress={()=>{
-          alert('AAAAAA QAZA BASMA QAZA BASMAAA')
-        }} style={styles.button}>OPEN</Pressable>
+        
+        <Pressable onPress={()=>changeOpen()
+          // alert('AAAAAA QAZA BASMA QAZA BASMAAA'),
+        } style={styles.button}>{openUpdate}</Pressable>
       </View>
     </View>
   );
